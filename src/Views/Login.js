@@ -7,6 +7,7 @@ import {
   Form,
   Loader,
   Dimmer,
+  Container,
 } from "semantic-ui-react";
 
 const friendOptions = [
@@ -144,14 +145,16 @@ class Login extends Component {
 
     return (
       <div>
-        <SegmentExampleSegments
-          loading={this.Loader}
-          onChange={this.onChange}
-          generateDropdown={friendOptions}
-          disabled={disabled}
-          value={value}
-          wrapper={this.wrapper}
-        />
+        <Container>
+          <SegmentExampleSegments
+            loading={this.Loader}
+            onChange={this.onChange}
+            generateDropdown={friendOptions}
+            disabled={disabled}
+            value={value}
+            wrapper={this.wrapper}
+          />
+        </Container>
       </div>
     );
   }
