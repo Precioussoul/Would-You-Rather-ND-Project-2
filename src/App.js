@@ -8,6 +8,7 @@ import Navigation from "./Views/Navigation";
 import NewQuestion from "./Views/NewQuestion";
 import Question from "./Views/QuestionContainer";
 import { questionData } from "./Views/_DATA";
+import PageNotFound from "./Views/PageNotFound";
 
 class App extends Component {
   state = {
@@ -46,21 +47,26 @@ class App extends Component {
             </Fragment>
           ) : (
             <div>
-              <Login onLogin={this.onLogin} />
+              <Route render={() => <Login onLogin={this.onLogin} />} />
             </div>
           )}
 
           <br></br>
-
-          <Route exact path="/login" render={() => <Login />} />
-          <Route exact path="/add" render={() => <NewQuestion />} />
-          <Route exact path="/leaderboard" render={() => <LeaderBoard />} />
-          <Route
-            path="/questions/:question_id"
-            render={() => (
-              <Question {...questionData} showResult={this.state.showResult} />
-            )}
-          />
+          <Switch>
+            <Route exact path="/login" render={() => <Login />} />
+            <Route exact path="/add" render={() => <NewQuestion />} />
+            <Route exact path="/leaderboard" render={() => <LeaderBoard />} />
+            <Route exact path="/404" render={() => <PageNotFound />} />
+            <Route
+              path="/questions/:question_id"
+              render={() => (
+                <Question
+                  {...questionData}
+                  showResult={this.state.showResult}
+                />
+              )}
+            />
+          </Switch>
         </div>
       </Router>
     );
