@@ -50,12 +50,12 @@ export const questionData = {
   author: "Sofiyullah Adullah",
   avatar: "https://react.semantic-ui.com/images/avatar/small/matt.jpg",
   optionOne: {
-    votes: ["jamespriest", "meryemjow"],
-    text: "Go out to dinner and the cinema.",
+    votes: ["abdullah", "aminat"],
+    text: "fall in love with football",
   },
   optionTwo: {
     votes: ["brittinibryant"],
-    text: "Netflix and chill.",
+    text: "Play with girls.",
   },
 };
 

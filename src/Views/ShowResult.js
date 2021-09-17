@@ -42,8 +42,11 @@ class ShowResult extends Component {
           </Progress>
         </Segment>
         {/* <Form.Field> */}
-        <Button size="tiny" floated="right" onClick={this.onClick}>
-          Back
+        <Button animated floated="right" onClick={this.onClick}>
+          <Button.Content visible>Back</Button.Content>
+          <Button.Content hidden>
+            <Icon name="arrow left" />
+          </Button.Content>
         </Button>
       </Container>
     );

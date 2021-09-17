@@ -29,7 +29,7 @@ const SegmentExampleSegments = ({
         <Grid.Column width={16}>
           {loading === true && (
             <Dimmer active inverted>
-              <Loader inverted content="Loading" />
+              <Loader size="large" color="pink" content="Logging in" />
             </Dimmer>
           )}
           <Image
@@ -81,8 +81,10 @@ class Login extends Component {
   };
   onSubmit = (e) => {
     e.preventDefault();
-    this.setState({ loading: true });
-    setTimeout(this.props.onLogin(this.state.value), 1000);
+    new Promise((res, rej) => {
+      this.setState({ loading: true });
+      setTimeout(() => res(), 1000);
+    }).then(() => this.props.onLogin(this.state.value));
   };
 
   render() {
@@ -94,7 +96,7 @@ class Login extends Component {
       <div>
         <Container>
           <SegmentExampleSegments
-            loading={this.Loader}
+            loading={this.state.loading}
             onChange={this.onChange}
             generateDropdown={friendOptions}
             disabled={disabled}
