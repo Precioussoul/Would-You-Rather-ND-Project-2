@@ -9,63 +9,7 @@ import {
   Dimmer,
   Container,
 } from "semantic-ui-react";
-
-const friendOptions = [
-  {
-    key: "Jenny Hess",
-    text: "Jenny Hess",
-    value: "Jenny Hess",
-    image: {
-      avatar: true,
-      src: "https://react.semantic-ui.com/images/avatar/small/jenny.jpg",
-    },
-  },
-  {
-    key: "Elliot Fu",
-    text: "Elliot Fu",
-    value: "Elliot Fu",
-    image: {
-      avatar: true,
-      src: "https://react.semantic-ui.com/images/avatar/small/elliot.jpg",
-    },
-  },
-  {
-    key: "Stevie Feliciano",
-    text: "Stevie Feliciano",
-    value: "Stevie Feliciano",
-    image: {
-      avatar: true,
-      src: "https://react.semantic-ui.com/images/avatar/small/stevie.jpg",
-    },
-  },
-  {
-    key: "Christian",
-    text: "Christian",
-    value: "Christian",
-    image: {
-      avatar: true,
-      src: "https://react.semantic-ui.com/images/avatar/small/christian.jpg",
-    },
-  },
-  {
-    key: "Matt",
-    text: "Matt",
-    value: "Matt",
-    image: {
-      avatar: true,
-      src: "https://react.semantic-ui.com/images/avatar/small/matt.jpg",
-    },
-  },
-  {
-    key: "Justen Kitsune",
-    text: "Justen Kitsune",
-    value: "Justen Kitsune",
-    image: {
-      avatar: true,
-      src: "https://react.semantic-ui.com/images/avatar/small/justen.jpg",
-    },
-  },
-];
+import { friendOptions } from "./_DATA";
 
 const SegmentExampleSegments = ({
   loading,
@@ -73,7 +17,7 @@ const SegmentExampleSegments = ({
   onChange,
   value,
   disabled,
-  wrapper,
+  onSubmit,
 }) => (
   <Segment.Group>
     <Header as="h4" block attached="top" textAlign="center">
@@ -96,7 +40,7 @@ const SegmentExampleSegments = ({
 
           <br />
           {/* on submit yet to be done */}
-          <Form>
+          <Form onSubmit={onSubmit}>
             <Header as="h2" color="green">
               Sign In
             </Header>
@@ -104,7 +48,6 @@ const SegmentExampleSegments = ({
               placeholder="Select a Friend"
               fluid
               selection
-              ref={wrapper}
               scrolling
               options={generateDropdown}
               value={value}
@@ -136,7 +79,11 @@ class Login extends Component {
       value,
     });
   };
-  wrapper = () => React.forwardRef();
+  onSubmit = (e) => {
+    e.preventDefault();
+    this.setState({ loading: true });
+    setTimeout(this.props.onLogin(this.state.value), 1000);
+  };
 
   render() {
     const { value } = this.state;
@@ -152,7 +99,7 @@ class Login extends Component {
             generateDropdown={friendOptions}
             disabled={disabled}
             value={value}
-            wrapper={this.wrapper}
+            onSubmit={this.onSubmit}
           />
         </Container>
       </div>

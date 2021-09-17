@@ -1,21 +1,19 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import {
-  Menu,
-  Responsive,
-  Image,
-  Grid,
-  Button,
-  Container,
-} from "semantic-ui-react";
-
+import { Menu, Image, Button, Container } from "semantic-ui-react";
 class Navigation extends Component {
+  handleLogout = (e) => {
+    e.preventDefault();
+    this.props.onLogout();
+  };
   render() {
+    const { user } = this.props;
+
     return (
       <Container>
-        <Menu pointing inverted className="ui green">
+        <Menu pointing secondary className="ui green">
           <Menu.Item name="home" as={NavLink} to="/" exact />
-          <Menu.Item name="new poll" as={NavLink} to="/add" />
+          <Menu.Item name="new Question" as={NavLink} to="/add" />
           <Menu.Item name="leader board" as={NavLink} to="/leaderboard" />
           <Menu.Menu position="right">
             <Menu.Item>
@@ -26,18 +24,18 @@ class Navigation extends Component {
                   spaced="right"
                   verticalAlign="bottom"
                 />
-                Sofiyullah
+                {user}
               </span>
             </Menu.Item>
             <Menu.Item>
               <Button
                 content="Logout"
                 labelPosition="right"
-                basic
+                className="ui pink"
                 compact
                 icon="log out"
                 size="mini"
-                // onClick={}
+                onClick={this.handleLogout}
               />
             </Menu.Item>
           </Menu.Menu>

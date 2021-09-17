@@ -4,27 +4,35 @@ import { Segment, Grid, Header, Button, Image } from "semantic-ui-react";
 
 class Question extends Component {
   state = {
-    viewPoll: false,
+    viewQuestion: false,
+  };
+  handleViewQuestion = (e) => {
+    this.props.handleResult(!this.props.unanswered);
+    e.preventDefault();
+    this.setState((currentState) => ({
+      viewQuestion: !currentState.viewQuestion,
+    }));
   };
 
   render() {
     const { avatar, author, question, qid, unanswered } = this.props;
     // const { unanswered } = this.props.unanswered;
     console.log(unanswered);
-    const color = unanswered === true ? "ui olive" : " ui green";
+    const color = unanswered === true ? "ui pink" : " ui green";
+    const bordercolor = unanswered === true ? "pink" : " green";
 
-    if (this.state.viewPoll === true) {
+    if (this.state.viewQuestion === true) {
       return <Redirect push to={`/questions/${qid}`} />;
     }
     return (
-      <Segment.Group>
+      <Segment.Group raised>
         <Header
           as="h5"
           textAlign="left"
           block
           attached="top"
           style={{
-            borderTop: `2px solid green`,
+            borderTop: `2px solid ${bordercolor}`,
           }}
           content={`${author} asks:`}
         />
@@ -46,8 +54,8 @@ class Question extends Component {
                 color={color}
                 size="tiny"
                 fluid
-                onClick={this.handleClick}
-                content={unanswered === true ? "Answer Poll" : "Results"}
+                onClick={this.handleViewQuestion}
+                content={unanswered === true ? "Answer Question" : "Results"}
               />
             </Grid.Column>
           </Grid.Row>
