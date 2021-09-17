@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./Views/Home";
+import LeaderBoard from "./Views/LeaderBoard";
 
 import Login from "./Views/Login";
 import Navigation from "./Views/Navigation";
@@ -44,13 +45,16 @@ class App extends Component {
               />
             </Fragment>
           ) : (
-            <Login onLogin={this.onLogin} />
+            <div>
+              <Login onLogin={this.onLogin} />
+            </div>
           )}
 
           <br></br>
 
           <Route exact path="/login" render={() => <Login />} />
           <Route exact path="/add" render={() => <NewQuestion />} />
+          <Route exact path="/leaderboard" render={() => <LeaderBoard />} />
           <Route
             path="/questions/:question_id"
             render={() => (

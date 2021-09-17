@@ -23,7 +23,7 @@ class ShowResult extends Component {
         <Header as="h3">Results:</Header>
         <Segment color="pink" style={{ backgroundColor: "#fcd5ce" }}>
           <Label color="pink" ribbon="right" className="vote">
-            <Icon name="check circle outline" size="big" className="compact" />
+            <Icon name="thumbs up" size="big" className="compact" />
             <div style={{ float: "right" }}>
               Your
               <br />

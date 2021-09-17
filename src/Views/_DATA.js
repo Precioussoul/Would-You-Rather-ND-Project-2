@@ -1,3 +1,5 @@
+// data was collected randomly from online sources for testing purpose, just incase you found it related
+
 export const QuestionPolls = {
   unanswered: [
     {
@@ -44,6 +46,7 @@ export const QuestionPolls = {
     },
   ],
 };
+// data was collected randomly from online sources for testing purpose, just incase you found it related
 
 export const questionData = {
   qid: 2,
@@ -115,3 +118,67 @@ export const friendOptions = [
     },
   },
 ];
+// data was collected randomly from online sources for testing purpose, just incase you found it related
+
+export const leaderboardData = [
+  {
+    id: "Justen Kitsune",
+    name: "Justen Kitsune",
+    avatar: "https://react.semantic-ui.com/images/avatar/small/justen.jpg",
+
+    answerCount: 7,
+    questionCount: 3,
+  },
+  {
+    id: "Christian",
+    name: "Christian",
+    avatar: "https://react.semantic-ui.com/images/avatar/small/christian.jpg",
+    answerCount: 6,
+    questionCount: 3,
+  },
+  {
+    id: "JennyHess",
+    name: "Jenny Hess",
+    avatar: "https://react.semantic-ui.com/images/avatar/small/jenny.jpg",
+    answerCount: 4,
+    questionCount: 4,
+  },
+];
+
+// data drafted from data provided in util/data.js
+
+export const users = {
+  sarahedo: {
+    id: "sarahedo",
+    name: "Sarah Edo",
+    // avatarURL: ,
+    answers: {
+      "8xf0y6ziyjabvozdd253nd": "optionOne",
+      "6ni6ok3ym7mf1p33lnez": "optionTwo",
+      am8ehyc8byjqgar0jgpub9: "optionTwo",
+      loxhs1bqm25b708cmbf3g: "optionTwo",
+    },
+    questions: ["8xf0y6ziyjabvozdd253nd", "am8ehyc8byjqgar0jgpub9"],
+  },
+  tylermcginnis: {
+    id: "tylermcginnis",
+    name: "Tyler McGinnis",
+    // avatarURL: ,
+    answers: {
+      vthrdm985a262al8qx3do: "optionOne",
+      xj352vofupe1dqz9emx13r: "optionTwo",
+    },
+    questions: ["loxhs1bqm25b708cmbf3g", "vthrdm985a262al8qx3do"],
+  },
+  johndoe: {
+    id: "johndoe",
+    name: "John Doe",
+    // avatarURL: ,
+    answers: {
+      xj352vofupe1dqz9emx13r: "optionOne",
+      vthrdm985a262al8qx3do: "optionTwo",
+      "6ni6ok3ym7mf1p33lnez": "optionTwo",
+    },
+    questions: ["6ni6ok3ym7mf1p33lnez", "xj352vofupe1dqz9emx13r"],
+  },
+};
