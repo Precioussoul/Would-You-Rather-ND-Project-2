@@ -32,11 +32,7 @@ const SegmentExampleSegments = ({
               <Loader size="large" color="pink" content="Logging in" />
             </Dimmer>
           )}
-          <Image
-            src="https://react.semantic-ui.com/images/avatar/small/christian.jpg"
-            size="medium"
-            centered
-          />
+          <Image src="/Would.png" size="medium" centered />
 
           <br />
           {/* on submit yet to be done */}
