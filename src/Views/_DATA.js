@@ -47,7 +47,7 @@ export const QuestionPolls = {
 
 export const questionData = {
   qid: 2,
-  author: "James Priest",
+  author: "Sofiyullah Adullah",
   avatar: "https://react.semantic-ui.com/images/avatar/small/matt.jpg",
   optionOne: {
     votes: ["jamespriest", "meryemjow"],
