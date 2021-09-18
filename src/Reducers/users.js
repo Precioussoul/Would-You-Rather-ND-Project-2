@@ -33,6 +33,6 @@ export default function users(state = {}, action) {
       };
 
     default:
-      break;
+      return state;
   }
 }

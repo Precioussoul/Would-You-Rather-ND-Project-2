@@ -34,21 +34,23 @@ export function saveQuestionsToUsers({ id, author }) {
 //   author,
 // };
 
-export function handleAddQuestion(question) {
-  return (dispatch) => {
-    return _saveQuestion(question).then((question) => {
-      dispatch(addQuestion(question)), dispatch(saveQuestionsToUsers(question));
-    });
-  };
-}
-
-// export function handleAddQuestion(optionOneText, optionTwoText, author) {
+// export function handleAddQuestion(question) {
 //   return (dispatch) => {
-//     return _saveQuestion({ optionOneText, optionTwoText, author }).then(
-//       (question) => {
-//         dispatch(addQuestion(question)),
-//           dispatch(saveQuestionsToUsers(question));
-//       }
-//     );
+//     return _saveQuestion(question).then((question) => {
+//       dispatch(addQuestion(question)), dispatch(saveQuestionsToUsers(question));
+//     });
 //   };
 // }
+
+export function handleAddQuestion(optionOneText, optionTwoText, author) {
+  return (dispatch) => {
+    return _saveQuestion({ optionOneText, optionTwoText, author }).then(
+      (question) => {
+        return (
+          dispatch(addQuestion(question)),
+          dispatch(saveQuestionsToUsers(question))
+        );
+      }
+    );
+  };
+}
