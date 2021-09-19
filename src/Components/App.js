@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { handleInitialData } from "../Actions/shared";
 import Login from "./Login";
 import Navigation from "./Navigation";
+import Home from "./Home";
 class App extends Component {
   componentDidMount() {
     this.props.handleInitialData();
@@ -24,7 +25,10 @@ class App extends Component {
               )}
             />
           ) : (
-            <Navigation />
+            <Fragment>
+              <Navigation />
+              <Home />
+            </Fragment>
           )}
         </div>
       </Router>

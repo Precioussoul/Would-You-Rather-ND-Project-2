@@ -6,7 +6,7 @@ import LeaderBoard from "./LeaderBoard";
 import Login from "./Login";
 import Navigation from "./Navigation";
 import NewQuestion from "./NewQuestion";
-import Question from "./QuestionContainer";
+import QuestionContainer from "./QuestionContainer";
 import { questionData } from "./_DATA";
 import PageNotFound from "./PageNotFound";
 
@@ -60,7 +60,7 @@ class App extends Component {
             <Route
               path="/questions/:question_id"
               render={() => (
-                <Question
+                <QuestionContainer
                   {...questionData}
                   showResult={this.state.showResult}
                 />
