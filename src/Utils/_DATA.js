@@ -1,5 +1,5 @@
 let users = {
-  sarahedo: {
+  SarahEdo: {
     id: "SarahEdo",
     name: "Sarah Edo",
     avatarURL: "/images/sarahedo.png",
@@ -11,7 +11,7 @@ let users = {
     },
     questions: ["8xf0y6ziyjabvozdd253nd", "am8ehyc8byjqgar0jgpub9"],
   },
-  tylermcginnis: {
+  TylerMcginnis: {
     id: "TylerMcginnis",
     name: "Tyler McGinnis",
     avatarURL: "/images/tylermcginnis.png",
@@ -21,7 +21,7 @@ let users = {
     },
     questions: ["loxhs1bqm25b708cmbf3g", "vthrdm985a262al8qx3do"],
   },
-  johndoe: {
+  JohnDoe: {
     id: "JohnDoe",
     name: "John Doe",
     avatarURL: "/images/johndoe.png",
