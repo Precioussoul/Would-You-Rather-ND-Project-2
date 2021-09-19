@@ -1,13 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { handleInitialData } from "../Actions/shared";
+import Login from "./Login";
 class App extends Component {
   componentDidMount() {
     this.props.handleInitialData();
   }
 
   render() {
-    return <div>hello wolrd</div>;
+    return (
+      <div>
+        <Login />
+      </div>
+    );
   }
 }
 
