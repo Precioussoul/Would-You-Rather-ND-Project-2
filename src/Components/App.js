@@ -27,7 +27,10 @@ class App extends Component {
           ) : (
             <Fragment>
               <Navigation />
-              <Home />
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route path="/questions/:question_id" component={Login} />
+              </Switch>
             </Fragment>
           )}
         </div>

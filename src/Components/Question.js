@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { Segment, Grid, Header, Button, Image } from "semantic-ui-react";
 
@@ -6,20 +7,26 @@ class Question extends Component {
   state = {
     viewQuestion: false,
   };
-  handleViewQuestion = (e) => {
-    this.props.handleResult(!this.props.unanswered);
+  handlePollResult = (result) => {
+    this.setState({
+      showResult: result,
+    });
+  };
 
+  handleViewQuestion = (e) => {
     e.preventDefault();
+    this.handlePollResult(!this.props.unanswered);
     this.setState((currentState) => ({
       viewQuestion: !currentState.viewQuestion,
     }));
   };
 
   render() {
-    const { avatar, author, question, qid, unanswered } = this.props;
-    // const { unanswered } = this.props.unanswered;
-    const author = users[question.author];
-    console.log(unanswered);
+    const { avatar, author, qid, question, unanswered } = this.props;
+
+    console.log("this is unanswered", unanswered);
+    console.log(" showResult state", this.state.showResult);
+
     const color = unanswered === true ? "ui pink" : " ui green";
     const bordercolor = unanswered === true ? "pink" : " green";
 
@@ -36,7 +43,7 @@ class Question extends Component {
           style={{
             borderTop: `2px solid ${bordercolor}`,
           }}
-          content={`${author.name} asks:`}
+          content={`${author} asks:`}
         />
         <Grid divided padded>
           <Grid.Row>
@@ -48,7 +55,7 @@ class Question extends Component {
                 Would you rather
               </Header>
               <p>
-                {question}
+                {question.optionOne.text}
                 <br />
                 or...
               </p>
@@ -67,4 +74,17 @@ class Question extends Component {
   }
 }
 
-export default Question;
+function mapStateToProps({ users }, { question, unanswered }) {
+  const avatar = users[question.author].avatarURL;
+  const author = users[question.author].name;
+  const qid = question.id;
+  return {
+    author,
+    avatar,
+    question,
+    qid,
+    unanswered,
+  };
+}
+
+export default connect(mapStateToProps)(Question);

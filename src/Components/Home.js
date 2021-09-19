@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Container, Segment, Tab } from "semantic-ui-react";
+import Question from "./Question";
 
-const panes = ({ handleResult, QuestionPolls }) => [
+const panes = ({ QuestionPolls }) => [
   {
     menuItem: "Unanswered",
     render: () => (
       <Tab.Pane>
         {QuestionPolls.unanswered.map((question) => (
-          <div key={question.id}>{question.optionOne.text}</div>
+          <Question key={question.qid} question={question} unanswered={true} />
         ))}
       </Tab.Pane>
     ),
@@ -18,15 +19,15 @@ const panes = ({ handleResult, QuestionPolls }) => [
     render: () => (
       <Tab.Pane>
         {QuestionPolls.answered.map((question) => (
-          <div key={question.id}>{question.optionTwo.text}</div>
+          <Question key={question.qid} question={question} unanswered={false} />
         ))}
       </Tab.Pane>
     ),
   },
 ];
 
-const TabExampleBasicAll = ({ handleResult, QuestionPolls }) => (
-  <Tab panes={panes({ handleResult, QuestionPolls })} className="tab" />
+const TabExampleBasicAll = ({ QuestionPolls }) => (
+  <Tab panes={panes({ QuestionPolls })} className="tab" />
 );
 
 class Home extends Component {
@@ -34,14 +35,10 @@ class Home extends Component {
     const { QuestionPolls } = this.props;
     console.log("question poll", QuestionPolls);
 
-    const { handleResult } = this.props;
     return (
       <Container>
         <Segment className="ui mt5">
-          <TabExampleBasicAll
-            QuestionPolls={QuestionPolls}
-            handleResult={handleResult}
-          />
+          <TabExampleBasicAll QuestionPolls={QuestionPolls} />
         </Segment>
       </Container>
     );
@@ -71,16 +68,4 @@ function mapStateToProps({ authUser, users, questions }) {
 }
 export default connect(mapStateToProps)(Home);
 
-//   <Question
-//     key={question.qid}
-//     {...question}
-//     unanswered={true}
-//     handleResult={handleResult}
-//   />
-
-//   <Question
-//     key={question.qid}
-//     {...question}
-//     unanswered={false}
-//     handleResult={handleResult}
 //   />
