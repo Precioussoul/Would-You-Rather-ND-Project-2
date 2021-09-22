@@ -11,8 +11,8 @@ class Navigation extends Component {
   };
 
   render() {
-    const { authUser, users } = this.props;
-    console.log(("nav user", users[authUser]));
+    const { authedUser, users } = this.props;
+    console.log(("nav user", users[authedUser]));
     return (
       <Container>
         <Menu pointing secondary className="ui green">
@@ -23,12 +23,12 @@ class Navigation extends Component {
             <Menu.Item>
               <span>
                 <Image
-                  src={users[authUser].avatarURL}
+                  src={users[authedUser].avatarURL}
                   avatar
                   spaced="right"
                   verticalAlign="bottom"
                 />
-                {users[authUser].name}
+                {users[authedUser].name}
               </span>
             </Menu.Item>
             <Menu.Item>
@@ -49,9 +49,9 @@ class Navigation extends Component {
   }
 }
 
-function mapStateToProps({ users, authUser }) {
+function mapStateToProps({ users, authedUser }) {
   return {
-    authUser,
+    authedUser,
     users,
   };
 }

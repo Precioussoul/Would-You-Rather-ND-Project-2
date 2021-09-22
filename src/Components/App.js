@@ -6,17 +6,18 @@ import { handleInitialData } from "../Actions/shared";
 import Login from "./Login";
 import Navigation from "./Navigation";
 import Home from "./Home";
+import QuestionContainer from "./QuestionContainer";
 class App extends Component {
   componentDidMount() {
     this.props.handleInitialData();
   }
 
   render() {
-    const { authUser } = this.props;
+    const { authedUser } = this.props;
     return (
       <Router>
         <div className="App">
-          {authUser === null ? (
+          {authedUser === null ? (
             <Route
               render={() => (
                 <Fragment>
@@ -29,7 +30,10 @@ class App extends Component {
               <Navigation />
               <Switch>
                 <Route exact path="/" component={Home} />
-                <Route path="/questions/:question_id" component={Login} />
+                <Route
+                  path="/questions/:question_id"
+                  component={QuestionContainer}
+                />
               </Switch>
             </Fragment>
           )}
@@ -39,9 +43,9 @@ class App extends Component {
   }
 }
 
-function mapStateToProps({ authUser }) {
+function mapStateToProps({ authedUser }) {
   return {
-    authUser,
+    authedUser,
   };
 }
 export default connect(mapStateToProps, { handleInitialData })(App);

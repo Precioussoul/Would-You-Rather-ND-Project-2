@@ -13,31 +13,30 @@ export function receiveUsers(users) {
   };
 }
 
-export function saveAnswerToUsers(authUser, qid, answer) {
+export function saveAnswerToUsers(authedUser, qid, answer) {
   return {
     type: SAVE_ANSWERS_TO_USERS,
-    authUser,
+    authedUser,
     qid,
     answer,
   };
 }
 
-export function saveAnswerToQuestions(authUser, qid, answer) {
+export function saveAnswerToQuestions(authedUser, qid, answer) {
   return {
     type: SAVE_ANSWER_TO_QUESTIONS,
-    authUser,
+    authedUser,
     qid,
     answer,
   };
 }
 
-export function handdleSaveQuestionAnswer(authUser, qid, answer) {
+export function handdleSaveQuestionAnswer(authedUser, qid, answer) {
   return (dispatch) => {
-    dispatch(saveAnswerToUsers(authUser, qid, answer));
-    dispatch(saveAnswerToQuestions(authUser, qid, answer));
-
-    return _saveQuestionAnswer(authUser, qid, answer).catch((message) => {
-      console.log("cant process data at saveQuestionanswer()", message);
+    dispatch(saveAnswerToUsers({ authedUser, qid, answer }));
+    dispatch(saveAnswerToQuestions({ authedUser, qid, answer }));
+    return _saveQuestionAnswer({ authedUser, qid, answer }).catch((err) => {
+      console.log(err);
     });
   };
 }

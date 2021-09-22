@@ -8,8 +8,8 @@ const panes = ({ QuestionPolls }) => [
     menuItem: "Unanswered",
     render: () => (
       <Tab.Pane>
-        {QuestionPolls.unanswered.map((question) => (
-          <Question key={question.qid} question={question} unanswered={true} />
+        {QuestionPolls.unAnsweredQuestion.map((question) => (
+          <Question key={question.id} question={question} unanswered={true} />
         ))}
       </Tab.Pane>
     ),
@@ -18,8 +18,8 @@ const panes = ({ QuestionPolls }) => [
     menuItem: "Answered",
     render: () => (
       <Tab.Pane>
-        {QuestionPolls.answered.map((question) => (
-          <Question key={question.qid} question={question} unanswered={false} />
+        {QuestionPolls.answeredQuestion.map((question) => (
+          <Question key={question.id} question={question} unanswered={false} />
         ))}
       </Tab.Pane>
     ),
@@ -45,24 +45,47 @@ class Home extends Component {
   }
 }
 
-function mapStateToProps({ authUser, users, questions }) {
-  const ansIds = Object.keys(users[authUser].answers);
+function mapStateToProps({ authedUser, questions }) {
+  const answered_id = Object.keys(questions).filter(
+    (questions_id) =>
+      questions[questions_id].optionOne.votes.includes(authedUser) ||
+      questions[questions_id].optionTwo.votes.includes(authedUser)
+  );
+  const unanswered_id = Object.keys(questions).filter(
+    (questions_id) =>
+      !questions[questions_id].optionOne.votes.includes(authedUser) &&
+      !questions[questions_id].optionTwo.votes.includes(authedUser)
+  );
 
-  const answered = Object.values(questions)
-    .filter((question) => !ansIds.includes(question.id))
-    .sort((b, a) => b.timestamp - a.timestamp);
+  const answeredQuestion = answered_id
+    .map((id) => ({
+      id,
+      author: questions[id].author,
+      optionOne: questions[id].optionOne,
+      optionTwo: questions[id].optionTwo,
+      timestamp: questions[id].timestamp,
+    }))
+    .sort((a, b) => b.timestamp - a.timestamp);
 
-  const unanswered = Object.values(questions)
-    .filter((question) => ansIds.includes(question.id))
-    .sort((b, a) => b.timestamp - a.timestamp);
+  const unAnsweredQuestion = unanswered_id
+    .map((id) => ({
+      id,
+      author: questions[id].author,
+      optionOne: questions[id].optionOne,
+      optionTwo: questions[id].optionTwo,
+      timestamp: questions[id].timestamp,
+    }))
+    .sort((a, b) => b.timestamp - a.timestamp);
 
-  console.log("this is answered", answered);
-  console.log("this is unanswered", unanswered);
+  console.log("this is answered_id", answered_id);
+  console.log("this is unanswered_id", unanswered_id);
+  console.log("this is answeredQuestion", answeredQuestion);
+  console.log("this is UnansweredQuestion", unAnsweredQuestion);
 
   return {
     QuestionPolls: {
-      answered,
-      unanswered,
+      unAnsweredQuestion,
+      answeredQuestion,
     },
   };
 }
