@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import { withRouter, Redirect } from "react-router-dom";
 import ShowQuestion from "./ShowQuestion";
 import ShowResult from "./ShowResult";
 
@@ -8,6 +8,9 @@ class QuestionContainer extends Component {
   render() {
     const { showResult, question, PageNotFound } = this.props;
 
+    if (PageNotFound) {
+      return <Redirect to="/questions/404" />;
+    }
     return (
       <div>
         {showResult ? (

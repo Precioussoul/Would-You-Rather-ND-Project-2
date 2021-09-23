@@ -14,7 +14,7 @@ class Navigation extends Component {
     const { authedUser, users } = this.props;
     console.log(("nav user", users[authedUser]));
     return (
-      <Container>
+      <Container className="mb">
         <Menu pointing secondary className="ui green">
           <Menu.Item name="home" as={NavLink} to="/" exact />
           <Menu.Item name="new Question" as={NavLink} to="/add" />

@@ -27,8 +27,8 @@ class Question extends Component {
     console.log("this is unanswered", unanswered);
     console.log(" showResult state", this.state.showResult);
 
-    const color = unanswered === true ? "ui pink" : " ui green";
-    const bordercolor = unanswered === true ? "pink" : " green";
+    const color = unanswered === true ? "pink" : "green";
+    const bordercolor = unanswered === true ? "pink" : "green";
 
     if (this.state.viewQuestion === true) {
       return <Redirect push to={`/questions/${qid}`} />;
