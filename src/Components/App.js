@@ -7,6 +7,8 @@ import Login from "./Login";
 import Navigation from "./Navigation";
 import Home from "./Home";
 import QuestionContainer from "./QuestionContainer";
+import NewQuestion from "./NewQuestion";
+import PageNotFound from "./PageNotFound";
 class App extends Component {
   componentDidMount() {
     this.props.handleInitialData();
@@ -30,6 +32,8 @@ class App extends Component {
               <Navigation />
               <Switch>
                 <Route exact path="/" component={Home} />
+                <Route exact path="/add" component={NewQuestion} />
+                <Route path="/questions/notfound" component={PageNotFound} />
                 <Route
                   path="/questions/:question_id"
                   component={QuestionContainer}

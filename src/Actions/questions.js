@@ -42,13 +42,14 @@ export function saveQuestionsToUsers({ id, author }) {
 //   };
 // }
 
-export function handleAddQuestion({ optionOneText, optionTwoText, author }) {
+export function handleAddQuestion(optionOneText, optionTwoText, author) {
   return (dispatch) => {
     return _saveQuestion({ optionOneText, optionTwoText, author }).then(
       (question) => {
+        console.log("from handleAdd", question);
         return (
           dispatch(addQuestion(question)),
-          dispatch(saveQuestionsToUsers(question.id, question.author))
+          dispatch(saveQuestionsToUsers(question))
         );
       }
     );
