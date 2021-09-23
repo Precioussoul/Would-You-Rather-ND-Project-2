@@ -30,7 +30,6 @@ class Login extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-
     const pickedUser = this.state.value;
 
     new Promise((resolve, reject) => {

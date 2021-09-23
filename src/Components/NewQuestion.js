@@ -26,12 +26,9 @@ class NewQuestion extends Component {
   };
   onSubmit = (e) => {
     e.preventDefault();
-    console.log("this.state.option1", this.state.optionOne);
-    console.log("this.state.option2", this.state.optionTwo);
-    console.log("this is authUser", this.props.authedUser);
-
     const { authedUser } = this.props;
     const { optionOne, optionTwo } = this.state;
+
     new Promise((res, rej) => {
       this.setState({ isLoading: true });
       this.props.dispatch(handleAddQuestion(optionOne, optionTwo, authedUser));

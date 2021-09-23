@@ -77,11 +77,6 @@ function mapStateToProps({ authedUser, questions }) {
     }))
     .sort((a, b) => b.timestamp - a.timestamp);
 
-  console.log("this is answered_id", answered_id);
-  console.log("this is unanswered_id", unanswered_id);
-  console.log("this is answeredQuestion", answeredQuestion);
-  console.log("this is UnansweredQuestion", unAnsweredQuestion);
-
   return {
     QuestionPolls: {
       unAnsweredQuestion,
@@ -90,5 +85,3 @@ function mapStateToProps({ authedUser, questions }) {
   };
 }
 export default connect(mapStateToProps)(Home);
-
-//   />

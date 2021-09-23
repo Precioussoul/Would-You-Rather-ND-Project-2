@@ -7,15 +7,9 @@ class Question extends Component {
   state = {
     viewQuestion: false,
   };
-  handlePollResult = (result) => {
-    this.setState({
-      showResult: result,
-    });
-  };
 
   handleViewQuestion = (e) => {
     e.preventDefault();
-    this.handlePollResult(!this.props.unanswered);
     this.setState((currentState) => ({
       viewQuestion: !currentState.viewQuestion,
     }));
@@ -25,7 +19,6 @@ class Question extends Component {
     const { avatar, author, qid, question, unanswered } = this.props;
 
     console.log("this is unanswered", unanswered);
-    console.log(" showResult state", this.state.showResult);
 
     const color = unanswered === true ? "pink" : "green";
     const bordercolor = unanswered === true ? "pink" : "green";

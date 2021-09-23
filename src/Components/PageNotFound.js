@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { Button, Container, Header, Icon, Segment } from "semantic-ui-react";
 
-const SegmentExamplePlaceholderInline = ({ onClick }) => (
+const SegmentExamplePlaceholderInline = () => (
   <Segment placeholder>
     <Header icon>
       <Icon name="eye slash" />
@@ -11,7 +11,7 @@ const SegmentExamplePlaceholderInline = ({ onClick }) => (
     </Header>
     <Segment>
       <Link to="/">
-        <Button animated floated="right" onClick={onClick}>
+        <Button animated floated="right">
           <Button.Content visible>back</Button.Content>
           <Button.Content hidden>
             <Icon name="arrow left" />

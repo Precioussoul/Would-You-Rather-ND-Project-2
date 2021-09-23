@@ -33,14 +33,7 @@ class ShowQuestion extends Component {
 
   render() {
     const { optionOne, optionTwo, id } = this.props.question;
-    console.log(
-      "authedUser",
-      this.props.authedUser,
-      "qid",
-      id,
-      "answer",
-      this.state.value
-    );
+
     const disabled = this.state.value === "" ? true : false;
 
     return (

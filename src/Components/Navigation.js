@@ -12,7 +12,7 @@ class Navigation extends Component {
 
   render() {
     const { authedUser, users } = this.props;
-    console.log(("nav user", users[authedUser]));
+
     return (
       <Container className="mb">
         <Menu pointing secondary className="ui green">

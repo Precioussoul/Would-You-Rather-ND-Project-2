@@ -29,20 +29,6 @@ export function saveQuestionsToUsers({ id, author }) {
   };
 }
 
-// question = {
-//   text1,
-//   text2,
-//   author,
-// };
-
-// export function handleAddQuestion(question) {
-//   return (dispatch) => {
-//     return _saveQuestion(question).then((question) => {
-//       dispatch(addQuestion(question)), dispatch(saveQuestionsToUsers(question));
-//     });
-//   };
-// }
-
 export function handleAddQuestion(optionOneText, optionTwoText, author) {
   return (dispatch) => {
     dispatch(showLoading());
