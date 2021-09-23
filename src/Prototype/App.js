@@ -1,3 +1,5 @@
+//  this application is a PROTOTYPE UI GUIDE For my application with SEMANTIC-UI-REACT for building UI
+
 import React, { Component, Fragment } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./Home";
@@ -9,6 +11,8 @@ import NewQuestion from "./NewQuestion";
 import QuestionContainer from "./QuestionContainer";
 import { questionData } from "./_DATA";
 import PageNotFound from "./PageNotFound";
+
+//  this application is a PROTOTYPE UI GUIDE For my application with SEMANTIC-UI-REACT for building UI
 
 class App extends Component {
   state = {
@@ -74,3 +78,5 @@ class App extends Component {
 }
 
 export default App;
+
+//  this application is a PROTOTYPE UI GUIDE For my application with SEMANTIC-UI-REACT for building UI
