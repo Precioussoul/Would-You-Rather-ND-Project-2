@@ -31,12 +31,11 @@ export function saveAnswerToQuestions(authedUser, qid, answer) {
   };
 }
 
-export function handdleSaveQuestionAnswer(authedUser, qid, answer) {
+export function handleSaveQuestionAnswer(authedUser, qid, answer) {
   return (dispatch) => {
-    dispatch(saveAnswerToUsers({ authedUser, qid, answer }));
-    dispatch(saveAnswerToQuestions({ authedUser, qid, answer }));
-    return _saveQuestionAnswer({ authedUser, qid, answer }).catch((err) => {
-      console.log(err);
+    return _saveQuestionAnswer(authedUser, qid, answer).then(() => {
+      dispatch(saveAnswerToUsers(authedUser, qid, answer));
+      dispatch(saveAnswerToQuestions(authedUser, qid, answer));
     });
   };
 }

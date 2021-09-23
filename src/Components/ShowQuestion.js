@@ -8,7 +8,7 @@ import {
   Button,
   Segment,
 } from "semantic-ui-react";
-import { handdleSaveQuestionAnswer } from "../Actions/users";
+import { handleSaveQuestionAnswer } from "../Actions/users";
 
 class ShowQuestion extends Component {
   state = {
@@ -24,15 +24,23 @@ class ShowQuestion extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     if (this.state.value !== "") {
-      const { authedUser, question, dispatch } = this.props;
-      dispatch(
-        handdleSaveQuestionAnswer(authedUser, question.id, this.state.value)
+      const { authedUser, question } = this.props;
+      this.props.dispatch(
+        handleSaveQuestionAnswer(authedUser, question.id, this.state.value)
       );
     }
   };
 
   render() {
-    const { optionOne, optionTwo } = this.props.question;
+    const { optionOne, optionTwo, id } = this.props.question;
+    console.log(
+      "authedUser",
+      this.props.authedUser,
+      "qid",
+      id,
+      "answer",
+      this.state.value
+    );
     const disabled = this.state.value === "" ? true : false;
 
     return (
