@@ -1,3 +1,4 @@
+import { hideLoading, showLoading } from "react-redux-loading-bar";
 import { _saveQuestionAnswer } from "../Utils/_DATA";
 
 export const RECEIVE_USERS = "RECEIVE_USERS";
@@ -33,9 +34,11 @@ export function saveAnswerToQuestions(authedUser, qid, answer) {
 
 export function handleSaveQuestionAnswer(authedUser, qid, answer) {
   return (dispatch) => {
+    dispatch(showLoading());
     return _saveQuestionAnswer(authedUser, qid, answer).then(() => {
       dispatch(saveAnswerToUsers(authedUser, qid, answer));
       dispatch(saveAnswerToQuestions(authedUser, qid, answer));
+      dispatch(hideLoading());
     });
   };
 }

@@ -56,7 +56,7 @@ class ShowResult extends Component {
     }
     return (
       <Container>
-        <Segment.Group>
+        <SegmentGroup>
           <Header as="h3" textAlign="left" block attached="top">
             Results:
           </Header>
@@ -96,7 +96,7 @@ class ShowResult extends Component {
               </Button.Content>
             </Button>
           </Link>
-        </Segment.Group>
+        </SegmentGroup>
       </Container>
     );
   }
