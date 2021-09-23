@@ -107,7 +107,14 @@ class Login extends Component {
             </Grid.Row>
           </Grid>
 
-          <Segment>Bottom</Segment>
+          <Segment>
+            <a
+              href="https://pixabay.com/images/search/avatar%20/"
+              className="tiny"
+            >
+              Avatar characters was collected from pixabay - www.pixabay.com
+            </a>
+          </Segment>
         </Segment.Group>
       </Container>
     );
