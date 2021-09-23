@@ -4,7 +4,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/WYR_Logo.png" alt="Logo" width="80" height="80">
+    <img src="/WYR_Logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Would You Rather -- Polling Game  </h3>
@@ -22,7 +22,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 []
-      <img src="images/Screenshot_app.png" alt="">
+      <img src="/Screenshot_app.png" alt="">
 
 Would You Rather Game is a fully responsive web application and mobile-ready polling game that presents the user with a series of questions to choose from and voted their choice of option
 
