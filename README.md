@@ -40,13 +40,7 @@ Would You Rather Game is a fully responsive web application and mobile-ready pol
 This app is the second of three projects required for <a href="https://classroom.udacity.com/nanodegrees/nd019/"> Udacity's React Nanodegree program.</a>
 
 
-
-<!-- GETTING STARTED -->
-## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
+ 
 ### Prerequisites
 
 This Project is Create and bootstrapped with Create-React-App* npm
@@ -58,8 +52,10 @@ This Project is Create and bootstrapped with Create-React-App* npm
 
  2. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
+ git clone https://github.com/Precioussoul/Would-You-Rather-ND-Project-2.git  
+ 
+ cd Would-You-Rather-ND-Project-2
+ ```
 3. Install NPM packages
    ```sh
    npm install
