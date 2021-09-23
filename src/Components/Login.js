@@ -12,7 +12,7 @@ import {
 } from "semantic-ui-react";
 import { setAuthedUser } from "../Actions/authedUser";
 
-class Login extends React.Component {
+class Login extends Component {
   state = {
     loading: false,
     value: "",
@@ -52,6 +52,7 @@ class Login extends React.Component {
 
   render() {
     const disabled = this.state.value === "" ? true : false;
+    console.log("user", this.state.value);
 
     return (
       <Container>

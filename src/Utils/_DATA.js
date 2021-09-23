@@ -32,6 +32,20 @@ let users = {
     },
     questions: ["6ni6ok3ym7mf1p33lnez", "xj352vofupe1dqz9emx13r"],
   },
+  AminatSofiyullah: {
+    id: "AminatSofiyullah",
+    name: "Aminat Sofiyullah",
+    avatarURL: "/images/aminatsofiyullah.png",
+    answers: {},
+    questions: [],
+  },
+  SofiyullahAbdullah: {
+    id: "SofiyullahAbdullah",
+    name: "Sofiyullah Abdullah",
+    avatarURL: "/images/sofiyullahabdullah.png",
+    answers: {},
+    questions: [],
+  },
 };
 
 let questions = {

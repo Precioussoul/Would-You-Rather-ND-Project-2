@@ -28,7 +28,7 @@ class LeaderBoard extends Component {
 
     console.log(newData);
 
-    const rankingColor = ["orange", "teal", "brown", "blue", "pink"];
+    const rankingColor = ["orange", "teal", "brown", "blue", "violet"];
     return (
       <Container>
         <SegmentGroup raised inverted positive>
