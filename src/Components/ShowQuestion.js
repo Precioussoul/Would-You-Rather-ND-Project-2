@@ -32,12 +32,12 @@ class ShowQuestion extends Component {
   };
 
   render() {
-    const { optionOne, optionTwo, id } = this.props.question;
+    const { optionOne, optionTwo } = this.props.question;
 
     const disabled = this.state.value === "" ? true : false;
 
     return (
-      <Container raised>
+      <Container>
         <Segment>
           <Header as="h4">Would you rather</Header>
           <Form onSubmit={this.onSubmit}>

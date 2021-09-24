@@ -13,17 +13,6 @@ import { leaderboardData, users } from "./_DATA";
 
 class LeaderBoard extends Component {
   render() {
-    const newData = Object.values(users)
-      .map((user) => ({
-        name: user.name,
-        answerCount: Object.values(user.answers).length,
-        questionCount: user.questions.length,
-        ScoreCount: Object.values(user.answers).length + user.questions.length,
-      }))
-      .sort((a, b) => b.ScoreCount - a.ScoreCount);
-
-    console.log(newData);
-
     const rankingColor = ["orange", "teal", "brown", "blue", "pink"];
     return (
       <Container>
@@ -87,3 +76,14 @@ class LeaderBoard extends Component {
 }
 
 export default LeaderBoard;
+
+// const newData = Object.values(users)
+//   .map((user) => ({
+//     name: user.name,
+//     answerCount: Object.values(user.answers).length,
+//     questionCount: user.questions.length,
+//     ScoreCount: Object.values(user.answers).length + user.questions.length,
+//   }))
+//   .sort((a, b) => b.ScoreCount - a.ScoreCount);
+
+// console.log(newData);

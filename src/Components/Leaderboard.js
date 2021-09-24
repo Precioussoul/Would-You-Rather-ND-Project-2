@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import {
   Segment,
+  GridRow,
+  GridColumn,
   Grid,
   Header,
   Container,
@@ -26,12 +28,10 @@ class LeaderBoard extends Component {
       }))
       .sort((a, b) => b.ScoreCount - a.ScoreCount);
 
-    console.log(newData);
-
     const rankingColor = ["orange", "teal", "brown", "blue", "violet"];
     return (
       <Container>
-        <SegmentGroup raised inverted positive>
+        <SegmentGroup raised>
           <Segment color="pink">
             <Header
               as="h2"
@@ -42,7 +42,7 @@ class LeaderBoard extends Component {
             />
           </Segment>
           {newData.map((leader, idx) => (
-            <Segment.Group key={leader.id}>
+            <SegmentGroup key={leader.id}>
               <Label
                 corner="left"
                 icon="chess king"
@@ -50,39 +50,37 @@ class LeaderBoard extends Component {
                 color={rankingColor[idx]}
               />
               <Grid divided padded>
-                <Grid.Row>
-                  <Grid.Column width={4} verticalAlign="middle">
+                <GridRow>
+                  <GridColumn width={4} verticalAlign="middle">
                     <Image src={leader.avatar} />
-                  </Grid.Column>
-                  <Grid.Column width={8}>
+                  </GridColumn>
+                  <GridColumn width={8}>
                     <Header as="h3" textAlign="left">
                       {leader.name}
                     </Header>
                     <Grid>
-                      <Grid.Column width={12}>Answered questions</Grid.Column>
-                      <Grid.Column width={4}>{leader.answerCount}</Grid.Column>
+                      <GridColumn width={12}>Answered questions</GridColumn>
+                      <GridColumn width={4}>{leader.answerCount}</GridColumn>
                     </Grid>
                     <Divider />
                     <Grid>
-                      <Grid.Column width={12}>Created questions</Grid.Column>
-                      <Grid.Column width={4}>
-                        {leader.questionCount}
-                      </Grid.Column>
+                      <GridColumn width={12}>Created questions</GridColumn>
+                      <GridColumn width={4}>{leader.questionCount}</GridColumn>
                     </Grid>
-                  </Grid.Column>
-                  <Grid.Column width={4} textAlign="center">
-                    <Segment.Group>
+                  </GridColumn>
+                  <GridColumn width={4} textAlign="center">
+                    <SegmentGroup>
                       <Header as="h5" block attached="top" content="Score" />
                       <Segment>
                         <Label circular color="pink" size="massive">
                           {leader.ScoreCount}
                         </Label>
                       </Segment>
-                    </Segment.Group>
-                  </Grid.Column>
-                </Grid.Row>
+                    </SegmentGroup>
+                  </GridColumn>
+                </GridRow>
               </Grid>
-            </Segment.Group>
+            </SegmentGroup>
           ))}
         </SegmentGroup>
       </Container>
