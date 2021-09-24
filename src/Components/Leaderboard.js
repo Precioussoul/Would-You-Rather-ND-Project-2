@@ -28,7 +28,7 @@ class LeaderBoard extends Component {
       }))
       .sort((a, b) => b.ScoreCount - a.ScoreCount);
 
-    const rankingColor = ["orange", "teal", "brown", "blue", "violet"];
+    const rankingColor = ["orange", "teal", "brown", "blue", "olive"];
     return (
       <Container>
         <SegmentGroup raised>
