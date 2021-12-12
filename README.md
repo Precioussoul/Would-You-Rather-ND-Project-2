@@ -26,6 +26,8 @@
 
 Would You Rather Game is a fully responsive web application and mobile-ready polling game that presents the user with a series of questions to choose from and voted their choice of option
 
+## [check live version🎮](https://wouldrathergame.netlify.app)
+
 
 ### Built With
 
